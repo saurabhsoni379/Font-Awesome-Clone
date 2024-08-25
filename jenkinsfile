@@ -3,12 +3,7 @@ pipeline {
         DOCKER_IMAGE = "saurabhsoni274/react-app:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('dockerHub_cred')
       }
-    agent{
-         docker{
-             image 'node:18-alpine'
-           args '-v /var/run/docker.sock:/var/run/docker.sock'
-         }
-}
+    agent any
 
     stages {
         stage('checkout') {
