@@ -35,8 +35,8 @@ pipeline {
             steps{
                 sh '''
                  export ver=${BUILD_NUMBER}
-                envsubst > docker-compose.yml
-                 docker-compose  up 
+                envsubst < docker-compose.yml > docker-compose-temp.yml
+                 docker-compose -d -f docker-compose-temp  up 
                 '''
             }
         }
