@@ -16,7 +16,7 @@ pipeline {
       
             steps{
                 sh '''
-                cd  Font-Awesome-Clone 
+               
                 docker build  -t  ${DOCKER_IMAGE} .
                 '''
             }
