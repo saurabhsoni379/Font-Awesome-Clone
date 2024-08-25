@@ -39,7 +39,10 @@ pipeline {
         stage('container up'){
             steps{
                 sh '''
-                
+                 cd Font-Awesome-Clone 
+                 export $1=${BUILD_NUMBER}
+                envsubst > docker-compose.yml
+                 docker-compose  up 
                 '''
             }
         }
