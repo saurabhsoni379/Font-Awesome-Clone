@@ -26,8 +26,10 @@ pipeline {
             steps{
   script{
                 withCredentials([usernamePassword(credentialsId: 'dockerHub_cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
-                sh 'docker login -u ${env.user} -p ${env.pass}'
-                sh 'docker push ${DOCKER_IMAGE}'
+                sh '''
+                docker login -u ${env.user} -p ${env.pass}
+                docker push ${DOCKER_IMAGE}
+                      '''
   }
 }
             }
