@@ -41,4 +41,13 @@ pipeline {
             }
         }
     }
+ 
+ 
+ post {
+        always {
+           
+            slackSend channel: 'jenkins',
+            message: "malma pani sab barabar hai bahu"
+        }
+    }
 }
