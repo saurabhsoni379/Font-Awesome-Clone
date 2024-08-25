@@ -1,6 +1,6 @@
 services:
   webApp:
-    image: "saurabhsoni274/react-app:1"
+    image: "saurabhsoni274/react-app:$1"
     ports:
       - "80:80"
   
