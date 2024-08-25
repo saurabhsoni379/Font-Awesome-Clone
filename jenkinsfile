@@ -24,10 +24,12 @@ pipeline {
         
         stage('push to docker hub'){
             steps{
+    script{
  docker.withRegistry('https://index.docker.io/v1/', 'dockerHub_cred') {
                 sh "docker push ${DOCKER_IMAGE}"
             }
           }
+ }
         }
         stage('container up'){
             steps{
