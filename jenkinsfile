@@ -17,13 +17,6 @@ pipeline {
                 git branch: 'main' , url:'https://github.com/saurabhsoni379/Font-Awesome-Clone.git'
             }
         }
-           stage('install Docker CLI') {
-            steps {
-                sh '''
-                apk add --no-cache docker-cli
-                '''
-            }
-        }
         stage('build'){
       
             steps{
