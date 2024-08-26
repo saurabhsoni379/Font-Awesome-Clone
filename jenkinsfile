@@ -3,7 +3,11 @@ pipeline {
         DOCKER_IMAGE = "saurabhsoni274/react-app:${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = credentials('dockerHub_cred')
       }
-    agent docker-node
+     agent {
+        node {
+            label 'docker'
+        }
+    }
 
     stages {
         stage('checkout') {
