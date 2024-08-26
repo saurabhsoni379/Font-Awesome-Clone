@@ -1,7 +1,7 @@
 pipeline {
            environment {
         DOCKER_IMAGE = "saurabhsoni274/react-app:${BUILD_NUMBER}"
-        REGISTRY_CREDENTIALS = credentials('dockerHub_cred')
+        
       }
      agent {
         node {
@@ -39,8 +39,7 @@ pipeline {
             steps{
                 sh '''
                  export ver=${BUILD_NUMBER}
-                envsubst < docker-compose.yml > docker-compose-temp.yml
-                  docker compose -f docker-compose-temp.yml up -d
+                  docker compose  up -d
                 '''
             }
         }
